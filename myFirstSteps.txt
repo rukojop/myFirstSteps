@@ -17,7 +17,7 @@ class flow extends Thtread
             Files.copy(source,target);
             update(target.toString());
             Program.count--;
-            System.out.println("dome");
+            System.out.println("done");
         }
         catch(java.nio.file.NoSuchFileException e)
         {
