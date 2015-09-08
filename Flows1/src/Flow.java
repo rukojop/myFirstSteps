@@ -75,24 +75,27 @@ public class Flow extends Thread {
             System.out.println("write path");
 
             String s = r.readLine();
-            File folder = new File(s);
-            File[] files = folder.listFiles();
-            if(files==null)
-                System.out.println("wrong path");
-            else
-            {
+            if (s.equals("exit"))
+                return;
+            else {
+                File folder = new File(s);
+                File[] files = folder.listFiles();
+                if (files == null)
+                    System.out.println("wrong path");
+                else {
 
-                int i = 0;
-                while (i < files.length && count <= limit) {
-                    Flow f = new Flow();
-                    f.run(files[i]);
-                    f.start();
-                    count++;
-                    i++;
+                    int i = 0;
+                    while (i < files.length && count <= limit) {
+                        Flow f = new Flow();
+                        f.run(files[i]);
+                        f.start();
+                        count++;
+                        i++;
+                    }
                 }
-            }
 
-            DoThing();
+                DoThing();
+            }
         }
     }
 
